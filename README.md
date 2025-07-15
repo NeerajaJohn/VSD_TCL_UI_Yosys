@@ -7,12 +7,18 @@ The workshop proceeds by following daily subtasks to create the User Interface t
 
 <details>
   <summary><strong>Day 1: Introduction and VSDSYNTH Toolbox Usage</strong></summary>
-
-  Task 1
+  The overall function requirement of the tool we are designing was discussed in this day's workshop. We build a TCL tool box which takes a csv file as an input and gives a timing result  output after running through synthesis and timing tools. The tasks followed for this purpose are given below. I have linked the specific subtasks done throughout the workshop days. 
+  
+  - ##### Task 1: Create a command (for example, vsdsynth) and pass .csv files from UNIX shell to TCL script
+  - [fhgf](Variable-Creation-and-Processing-Constraints-from-CSV)
+  - ##### Task 2:Converting all inputs to format [1]and SDC format, then passing them to the synthesis tool Yosys
+  - ##### Task 3:Convert format [1] and SDC to format [2] and pass them to the timing tool 'Opentimer'.
+  
 </details>
 <details>
-  <summary><strong>Day 2: Variable Creation and Processing Constraints from CSV</strong></summary>
-
+  <summary><strong>Day 2: Variable Creation and Processing Constraints from CSV</strong></summary
+                                                                                          
+  - ##### Variable Creation and Processing Constraints from CSV 
   Task 1
 </details>
 <details>
