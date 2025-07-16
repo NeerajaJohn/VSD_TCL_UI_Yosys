@@ -10,8 +10,7 @@ The workshop proceeds by following daily subtasks to create the User Interface t
   
   The overall function requirement of the tool we are designing was discussed in this day's workshop. We build a TCL tool box which takes a csv file as an input and gives a timing result  output after running through synthesis and timing tools. The tasks followed for this purpose are given below. 
   
-  - ##### Task 1: Create a command (for example, vsdsynth) and pass .csv files from UNIX shell to TCL script
-  - [fhgf](#####variable-creation-and-processing-constraints-from-csv)
+  - ##### Task 1: Create a command (for example, vsdsynth) and pass .csv files from UNIX shell to TCL script  
   - ##### Task 2:Converting all inputs to format [1]and SDC format, then passing them to the synthesis tool Yosys
   - ##### Task 3:Convert format [1] and SDC to format [2] and pass them to the timing tool 'Opentimer'.
   - ##### Task 4:Generate an output report with the timing results
@@ -32,6 +31,9 @@ The workshop proceeds by following daily subtasks to create the User Interface t
        ```bash
        #!/bin/tcsh -f
        ```
+       <img width="1357" height="757" alt="image" src="https://github.com/user-attachments/assets/9b0bdfe5-525f-45cd-a2c8-6989316919c3" />
+       
+
      - Create Logo for the tool(The file tcl_synth is going to be a tcl tool for synthesis and analysing using the commands to be written in the file tcl_synth created now.
 
        ```bash
@@ -54,16 +56,50 @@ The workshop proceeds by following daily subtasks to create the User Interface t
      ```bash
      chmod +x tcl_synth
      ```
-    ![image](admin:///media/sf_Shared/Screenshot%202025-07-16%20181743.png)
+    
+     <img width="1361" height="768" alt="image" src="https://github.com/user-attachments/assets/cd284f92-689a-454d-823d-220f9b1432ac" />
 
     - Next create a variable named "my_work_dir" and assign to it the absolute path of the current working directory. The pwd command returns the full path of the directory where the Tcl script is currently executing
   
       ```bash
       set my_work_dir [pwd]
       ```
-
-
-
+    - Next add a line to accept the csv file as input arguement. The below command executes a Tcl script named "tcl_synth.tcl" using the Tcl shell interpreter (tclsh) and passes the first command-line argument to the script.
+     ```bash
+     tclsh tcl_synth.tcl  $argv[1]
+     ```
+    - Next to make the tool user friendly, we can give several error scenarios like the following:
+      - No csv file given
+      - .csv file doesnot exist in working folder
+      - User types -help
+      To address these issues, we can check conditions using if statements and print out messages to guide the user.
+     ```bash
+      if ($#argv != 1) then
+	      echo "Info : Please Provide the csv file"
+	      exit 1
+      endif
+      if (! -f $argv[1] || $argv[1] == "-help") then
+	      if ($argv[1] == "-help") then
+		      echo USAGE: ./tcl_synth \<csv file\>
+      		echo
+      		echo 		where \<csv file\> consists of 2 columns
+      		echo
+      		echo           	\<Design Name\> is the name of top level module 
+      		echo
+      		echo            \<Output Directory\> is the name of Output Directory where you want to dump synthesis script, synthesized netlist and timing reports
+      		echo 
+      		echo             \<Early Libary Path\> is the file path of the early cell libary to be used for STA
+      		echo
+          echo             \<Late Libary Path\> is the file path of the late cell libary to be used for STA
+		      echo
+          echo             \<Constraints file\> is the file path of constraints to be used for STA
+	      else 
+		      echo "ERROR: Cannot find the CSV file $argv[1]. Exiting"
+	     endif
+     else
+          tclsh tcl_synth.tcl  $argv[1]
+     endif
+     ```
   
 
 </details>
