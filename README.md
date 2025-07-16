@@ -22,13 +22,37 @@ The workshop proceeds by following daily subtasks to create the User Interface t
    <summary><strong>Create Command (vsdsynth) and pass csv file from UNIC shell to Tcl script</strong></summary>
 
     Steps :
-     - Create a UNIX script named "vsdsynth"
+     - Created a UNIX script named "tcl_synth" by typing the following in a terminal in vsdsynth folder 
+  
+       ```bash
+       vim tcl_synth
+       ```
        > Let the system know that its a UNIX script
  
        ```bash
        #!/bin/tcsh -f
        ```
-     - 
+     - Create Logo for the tool(The file tcl_synth is going to be a tcl tool for synthesis and analysing using the commands to be written in the file tcl_synth created now.
+
+       ```bash
+       echo                    "TTTTTTT   CCCCC    L               SSSSSS   Y       Y   N     N  TTTTTTT  H     H"
+       echo                    "   T     C     C   L              S          Y     Y    NN    N     T     H     H"
+       echo                    "   T     C         L              S           Y   Y     N N   N     T     H     H"
+       echo                    "   T     C         L       ====    SSSSS       YYY      N  N  N     T     HHHHHHH"
+       echo                    "   T     C         L                    S       Y       N   N N     T     H     H"
+       echo                    "   T     C     C   L                    S       Y       N    NN     T     H     H"
+       echo                    "   T      CCCCC    LLLLLLL         SSSSS        Y       N     N     T     H     H"
+       echo
+       echo
+       echo                    " A TCL tool created by Neeraja John following VSD TCL Beginner to Advanced Workshop"
+      
+       ````
+
+    - Add execute permission using following line
+
+     ```bash
+     chmod +x tcl_synth
+     ```
     
 
 
