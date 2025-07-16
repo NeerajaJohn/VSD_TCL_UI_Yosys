@@ -47,13 +47,21 @@ The workshop proceeds by following daily subtasks to create the User Interface t
        echo                    " A TCL tool created by Neeraja John following VSD TCL Beginner to Advanced Workshop"
       
        ````
+      
 
     - Add execute permission using following line
 
      ```bash
      chmod +x tcl_synth
      ```
-    
+    ![image](admin:///media/sf_Shared/Screenshot%202025-07-16%20181743.png)
+
+    - Next create a variable named "my_work_dir" and assign to it the absolute path of the current working directory. The pwd command returns the full path of the directory where the Tcl script is currently executing
+  
+      ```bash
+      set my_work_dir [pwd]
+      ```
+
 
 
   
